@@ -28,7 +28,12 @@ def increase_col():
 	
 	month="{:%B %Y}".format(datetime.date.today())
 	
-	if sheet.cell('%s1' % curr_col).value == month:
-		sheet['%s1' % new_col] = next_month
+	while sheet.cell('%s1' % curr_col).value == month:
+		pass
+	else:
+		sheet['%s1' % new_col] = month
+		
 	
 	wb.save('report.xlsx')
+
+#increase_col()
